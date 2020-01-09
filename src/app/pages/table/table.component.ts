@@ -26,8 +26,14 @@ export class TableComponent implements OnInit {
     this.addItemModal.show();
   }
 
-  createPerson({ firstName, secondName, email }) {
-    this.alert.showAlert('alert-success', `The user ${firstName} ${secondName} (${email}) was created`);
+  createPerson({ firstName, lastName, email }) {
+    this.personService.create({ firstName, lastName, email}).subscribe(
+      ({ user }) => {
+        this.alert.showAlert('alert-success', `The user ${user.firstName} ${user.lastName} (${user.email}) was created`);
+        this.fetchPersons();
+      }
+    )
+
   }
 
   fetchPersons() {

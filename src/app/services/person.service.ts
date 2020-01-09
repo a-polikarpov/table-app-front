@@ -15,6 +15,10 @@ export class PersonService {
     return this.http.get<{users: IPerson[]}>(`${API_URL}/user`);
   }
 
+  create(data: IPerson): Observable<{user: IPerson}> {
+    return this.http.post(`${API_URL}/user`, data);
+  }
+
   removeById(id: number): Observable<any> {
     return this.http.delete(`${API_URL}/user/${id}`);
   }

@@ -8,10 +8,10 @@ import {ModalDirective} from 'angular-bootstrap-md';
 })
 export class AddItemModalComponent implements OnInit {
   @ViewChild('addItemModal') addItemModal: ModalDirective;
-  @Output() createPerson = new EventEmitter<{firstName: string, secondName: string, email: string}>();
+  @Output() createPerson = new EventEmitter<{firstName: string, lastName: string, email: string}>();
 
   firstName = '';
-  secondName = '';
+  lastName = '';
   email = '';
 
   constructor() { }
@@ -32,8 +32,8 @@ export class AddItemModalComponent implements OnInit {
     this.firstName = v;
   }
 
-  setSecondName(v) {
-    this.secondName = v;
+  setLastName(v) {
+    this.lastName = v;
   }
 
   setEmail(v) {
@@ -42,13 +42,13 @@ export class AddItemModalComponent implements OnInit {
 
   clearFields() {
     this.firstName = '';
-    this.secondName = '';
+    this.lastName = '';
     this.email = '';
   }
 
   emitCreate() {
-    const { firstName, secondName, email } = this;
-    this.createPerson.emit({ firstName, secondName, email });
+    const { firstName, lastName, email } = this;
+    this.createPerson.emit({ firstName, lastName, email });
   }
 
 }
