@@ -1,1 +1,9 @@
+<div class="alert top-alert" role="alert"
+     *ngIf="showAlert$ | async"
+     [class.alert-success]="(alertStyle$ | async) === 'alert-success'"
+     [class.alert-danger]="(alertStyle$ | async) === 'alert-danger'"
+>
+  {{ alertMessage$ | async }}
+</div>
+
 <router-outlet></router-outlet>

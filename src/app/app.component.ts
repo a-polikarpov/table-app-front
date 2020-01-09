@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AlertService} from './services/alert.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'table-app-front';
+
+  alertStyle$ = this.alert.alertStyle$;
+  alertMessage$ = this.alert.alertMessage$;
+  showAlert$ = this.alert.showAlert$;
+
+  constructor(private alert: AlertService) {
+  }
 }
