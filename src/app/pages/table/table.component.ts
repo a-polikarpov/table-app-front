@@ -30,14 +30,14 @@ export class TableComponent implements OnInit {
     this.alert.showAlert('alert-success', `The user ${firstName} ${secondName} (${email}) was created`);
   }
 
-  removePerson(id) {
-    this.alert.showAlert('alert-success', 'The user was deleted');
-  }
-
   fetchPersons() {
     return this.personService.getAll().subscribe(
       response => this.persons = response.users
     );
+  }
+
+  removePerson(id) {
+    return this.personService.removeById(id).subscribe(() => this.fetchPersons());
   }
 
 }
