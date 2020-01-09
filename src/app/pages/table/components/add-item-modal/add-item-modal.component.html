@@ -1,0 +1,40 @@
+<div mdbModal #addItemModal="mdbModal"
+     [config]="{show: false}"
+     class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Add person</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form">
+          <div class="md-form">
+            <input mdbInput type="text" id="person-first-name" class="form-control" placeholder="First name"
+                   (input)="setFirstName($event.target.value)"
+                   [value]="firstName"
+            >
+          </div>
+          <div class="md-form">
+            <input mdbInput type="text" id="person-second-name" class="form-control" placeholder="Second name"
+                   (input)="setSecondName($event.target.value)"
+                   [value]="secondName"
+            >
+          </div>
+          <div class="md-form">
+            <input mdbInput type="text" id="person-email" class="form-control" placeholder="Email name"
+                   (input)="setEmail($event.target.value)"
+                   [value]="email"
+            >
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="danger" aria-label="Close" (click)="hide()" mdbWavesEffect>Close</button>
+        <button type="button" mdbBtn color="success" mdbWavesEffect (click)="emitCreate(); hide()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
