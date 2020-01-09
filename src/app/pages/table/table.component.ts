@@ -36,6 +36,17 @@ export class TableComponent implements OnInit {
 
   }
 
+  updatePerson(id: any, field: 'firstName' | 'lastName' | 'email', v: string) {
+    const data = {};
+    data[field] = v;
+    this.personService.updateById(id, data).subscribe(
+      ({ user }) => {
+        this.alert.showAlert('alert-success', `The user was changed to ${user.firstName} ${user.lastName} (${user.email})`);
+        this.fetchPersons();
+      }
+    )
+  }
+
   fetchPersons() {
     return this.personService.getAll().subscribe(
       response => this.persons = response.users

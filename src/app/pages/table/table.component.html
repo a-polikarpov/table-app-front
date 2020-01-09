@@ -16,13 +16,22 @@
         </tr>
         <tr *ngFor="let person of persons">
           <td>
-            <span contenteditable="true" [innerText]="person.firstName"></span>
+            <span contenteditable="true"
+                  [innerText]="person.firstName"
+                  (blur)="updatePerson(person._id, 'firstName', $event.target.innerHTML)"
+            ></span>
           </td>
           <td>
-            <span contenteditable="true" [innerText]="person.lastName"></span>
+            <span contenteditable="true"
+                  [innerText]="person.lastName"
+                  (blur)="updatePerson(person._id, 'lastName', $event.target.innerHTML)"
+            ></span>
           </td>
           <td>
-            <span contenteditable="true" [innerText]="person.email"></span>
+            <span contenteditable="true"
+                  [innerText]="person.email"
+                  (blur)="updatePerson(person._id, 'email', $event.target.innerHTML)"
+            ></span>
           </td>
           <td>
             <span class="table-remove">

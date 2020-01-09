@@ -16,14 +16,14 @@ export class PersonService {
   }
 
   create(data: IPerson): Observable<{user: IPerson}> {
-    return this.http.post(`${API_URL}/user`, data);
+    return this.http.post<{user: IPerson}>(`${API_URL}/user`, data);
   }
 
   removeById(id: number): Observable<any> {
     return this.http.delete(`${API_URL}/user/${id}`);
   }
 
-  updateById(id: number, data: { firstName?: string, lastName?: string, email?: string }) {
-    return this.http.put(`${API_URL}/user/${id}`, data)
+  updateById(id: number, data: { firstName?: string, lastName?: string, email?: string }): Observable<{user: IPerson}> {
+    return this.http.put<{user: IPerson}>(`${API_URL}/user/${id}`, data);
   }
 }
