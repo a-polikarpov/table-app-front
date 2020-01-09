@@ -14,20 +14,20 @@
           <th class="text-center">Email</th>
           <th class="text-center">Actions</th>
         </tr>
-        <tr>
+        <tr *ngFor="let person of persons">
           <td>
-            <span contenteditable="true">John</span>
+            <span contenteditable="true" [innerText]="person.firstName"></span>
           </td>
           <td>
-            <span contenteditable="true">Snow</span>
+            <span contenteditable="true" [innerText]="person.lastName"></span>
           </td>
           <td>
-            <span contenteditable="true">123@gmail.com</span>
+            <span contenteditable="true" [innerText]="person.email"></span>
           </td>
           <td>
             <span class="table-remove">
               <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
-                      (click)="removePerson(1)"
+                      (click)="removePerson(person.id)"
               >Remove</button>
             </span>
           </td>

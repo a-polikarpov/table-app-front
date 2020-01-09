@@ -1,6 +1,6 @@
 export interface IPerson {
   id?: any,
   firstName: string,
-  secondName: string,
+  lastName: string,
   email: string
 }

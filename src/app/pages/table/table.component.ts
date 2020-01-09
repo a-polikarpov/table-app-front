@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AddItemModalComponent} from './components/add-item-modal/add-item-modal.component';
 import {AlertService} from '../../services/alert.service';
 import {PersonService} from '../../services/person.service';
+import {IPerson} from '../../model';
 
 @Component({
   selector: 'app-table',
@@ -10,6 +11,7 @@ import {PersonService} from '../../services/person.service';
 })
 export class TableComponent implements OnInit {
   @ViewChild(AddItemModalComponent) addItemModal;
+  persons: IPerson[] = [];
 
   constructor(
     private alert: AlertService,
@@ -17,6 +19,7 @@ export class TableComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.fetchPersons();
   }
 
   shodAddItemModal() {
@@ -29,6 +32,12 @@ export class TableComponent implements OnInit {
 
   removePerson(id) {
     this.alert.showAlert('alert-success', 'The user was deleted');
+  }
+
+  fetchPersons() {
+    return this.personService.getAll().subscribe(
+      response => this.persons = response.users
+    );
   }
 
 }
