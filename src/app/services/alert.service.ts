@@ -20,7 +20,7 @@ export class AlertService {
     this._alertMessageSubject.next(message);
     this._showAlertSubject.next(true);
 
-    setTimeout(() => this.clearAlert(), 1000);
+    setTimeout(() => this.clearAlert(), 3000);
   }
 
   clearAlert() {
