@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import { TableComponent } from './pages/table/table.component';
 import { AddItemModalComponent } from './pages/table/components/add-item-modal/add-item-modal.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddItemModalComponent } from './pages/table/components/add-item-modal/a
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

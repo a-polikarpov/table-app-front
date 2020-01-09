@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AddItemModalComponent} from './components/add-item-modal/add-item-modal.component';
 import {AlertService} from '../../services/alert.service';
+import {PersonService} from '../../services/person.service';
 
 @Component({
   selector: 'app-table',
@@ -11,7 +12,8 @@ export class TableComponent implements OnInit {
   @ViewChild(AddItemModalComponent) addItemModal;
 
   constructor(
-    private alert: AlertService
+    private alert: AlertService,
+    private personService: PersonService
   ) { }
 
   ngOnInit() {
